@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Hover Effect</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+/* Body and general styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.social-icons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.social-icon {
+  display: block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #d40c0c;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateX(-100px);  /* Start off-screen on the left */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* On hover, make the icons pop out */
+.social-icons:hover .social-icon {
+  opacity: 1;
+  transform: translateX(0);  /* Move to the normal position */
+}
+
+.social-icons:hover .social-icon:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.social-icons:hover .social-icon:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.social-icons:hover .social-icon:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.social-icons:hover .social-icon:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+
+  </style>
+</head>
+<body>
+
+  
+
+  <div class="social-icons">
+    <a href="#" class="social-icon">Facebook</a>
+    <a href="#" class="social-icon">Twitter</a>
+    <a href="#" class="social-icon">Instagram</a>
+    <a href="#" class="social-icon">LinkedIn</a>
+  </div>
+
+
+</body>
+</html>
