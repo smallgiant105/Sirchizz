@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Online Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        a {
+            list-style: none;
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #f4f4f4;
+            border: 2px dashed #fff;
+            padding: 3px;
+            padding-left: 4px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: white;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 5px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product h3 {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .product .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .add-to-cart {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #3498db;
+        }
+
+        /* Cart Button */
+        .cart {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .cart:active {
+            background-color: #c0392b;
+        }
+
+        /* Cart Popup */
+        .cart-popup {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 20px;
+            width: 300px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+        }
+
+        .cart-popup ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .cart-popup ul li {
+            padding: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-popup .checkout-btn {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .cart-count {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .remove-item {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .remove-item:hover {
+            background-color: #c0392b;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>SG Arena</h1>
+        <nav>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Cart Button -->
+    <div class="cart" onclick="toggleCartPopup()">
+        Cart (<span class="cart-count">0</span>)
+    </div>
+
+    <!-- Cart Popup -->
+    <div class="cart-popup" id="cart-popup">
+        <h3>Your Cart</h3>
+        <ul id="cart-items">
+            <li>Your cart is empty.</li>
+        </ul>
+        <button class="checkout-btn" onclick="window.location.href='payment.html';" >Checkout</button>
+    </div>
+
+    <!-- Product Listings -->
+    <div class="container">
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Product Image">
+            <h3>Chair</h3>
+            <p>Product description goes here.</p>
+            <p class="price">N$59.99</p>
+            <button class="add-to-cart" onclick="addToCart('Chair', 59.99)">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Product Image">
+            <h3>Table</h3>
+            <p>More details about this product.</p>
+            <p class="price">N$229.99</p>
+            <button class="add-to-cart" onclick="addToCart('Table', 229.99)">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Product Image">
+            <h3>Bed</h3>
+            <p>Description of this product.</p>
+            <p class="price">N$1939.99</p>
+            <button class="add-to-cart" onclick="addToCart('Bed', 1939.99)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+   
+<footer>
+    <p>&copy; 2024 <span>smallgiantcc</span>. All rights reserved.</p>
+</footer> 
+
+    <script>
+        let cart = [];
+        let cartCount = 0;
+
+        // Add item to the cart
+        function addToCart(productName, productPrice) {
+            cart.push({ name: productName, price: productPrice });
+            cartCount++;
+            updateCartCount();
+            displayCartItems();
+        }
+
+        // Update the cart count
+        function updateCartCount() {
+            document.querySelector('.cart-count').textContent = cartCount;
+        }
+
+        // Display cart items in the popup
+        function displayCartItems() {
+            const cartItemsList = document.getElementById('cart-items');
+            cartItemsList.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - N$${item.price.toFixed(2)}`;
+
+                // Create Remove Button for each item
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Remove';
+                removeBtn.classList.add('remove-item');
+                removeBtn.onclick = function() { removeItem(index); };
+
+                li.appendChild(removeBtn);
+                cartItemsList.appendChild(li);
+            });
+
+            if (cart.length === 0) {
+                cartItemsList.innerHTML = '<li>Your cart is empty.</li>';
+            }
+        }
+
+        // Remove item from the cart
+        function removeItem(index) {
+            cart.splice(index, 1); // Remove the item at the specified index
+            cartCount--;
+            updateCartCount();
+            displayCartItems();
+        }
+
+        // Toggle the cart popup visibility
+        function toggleCartPopup() {
+            const cartPopup = document.getElementById('cart-popup');
+            cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Checkout functionality
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty! Add items to your cart before checking out.');
+            } else {
+                let totalAmount = 0;
+                cart.forEach(item => totalAmount += item.price);
+                alert(`Checkout successful! Total amount: N$${totalAmount.toFixed(2)}`);
+                cart = [];
+                cartCount = 0;
+                updateCartCount();
+                toggleCartPopup(); // Close cart popup
+                displayCartItems(); // Clear the cart display
+            }
+        }
+    </script>
+
+</body>
+</html>

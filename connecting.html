@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SG-Tube</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Product Gallery Section */
+.product-gallery {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.product-gallery h2 {
+  color: #2575fc;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Horizontal Scroll Container */
+.product-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.product-box {
+  min-width: 300px;
+  max-width: 350px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.product-info {
+  padding: 20px;
+}
+
+.product-info h3 {
+  color: #2575fc;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-btn {
+  background-color: #2575fc;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+  background-color: #6a11cb;
+}
+
+/* Footer Section */
+footer {
+  margin-top: 50px;
+  text-align: center;
+  padding: 20px;
+  background-color: #2575fc;
+  color: white;
+  width: 100%;
+}
+
+footer p {
+  font-size: 1rem;
+}
+
+/* Styling for mobile responsiveness */
+@media (max-width: 768px) {
+  .product-container {
+    gap: 15px;
+    padding: 15px 0;
+  }
+
+  .product-box {
+    min-width: 250px;
+    max-width: 280px;
+  }
+
+  .product-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .contact-btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+}
+
+
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    position: relative;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+footer span {
+    font-weight: bold;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Product Gallery Section -->
+  <section class="product-gallery">
+    <h2>Explore </h2>
+    <br>
+    <h3>feel free to engange with the hit -makers & download  or stream not forgeting to share  the vibes. Connect your guy  to the correct site and guy   </h3> chizzy vibes
+    <div class="product-container">
+      <!-- Product Box 1 -->
+      <div class="product-box">
+        <div class="product-info">
+          <h3> Desighner x Bochas x zama </h3>
+          <p>  DAYA MULE </p>
+          <audio controls>
+              <source src="records/BOCHAZ X ZAMA X MERVIN-DAYA MULE.mp3" type="audio/mp3">
+              Your browser does not support the audio element.
+          </audio>
+
+          <div class="contact-buttons">
+            <button class="contact-btn" id="emailBtn1">mail </button>
+            <button class="contact-btn" id="phoneBtn1"> call now</button>
+            </div>
+        </div>
+      </div>
+
+      <div class="product-box">
+        <div class="product-info">
+          <h3> Desighner x Bochas </h3>
+          <p>  Pressure 2.o </p>
+          <audio controls>
+              <source src="/records/pressure 2.0.mp3" type="audio/mp3">
+              Your browser does not support the audio element.
+          </audio>
+
+          <div class="contact-buttons">
+            <button class="contact-btn" id="emailBtn1">mail </button>
+            <button class="contact-btn" id="phoneBtn1"> call now</button>
+            </div>
+        </div>
+      </div>
+      <div class="product-box">
+        <div class="product-info">
+          <h3> Desighner x Bochas x zama </h3>
+          <p>  DAYA MULE </p>
+          <audio controls>
+              <source src="records/BOCHAZ X ZAMA X MERVIN-DAYA MULE.mp3" type="audio/mp3">
+              Your browser does not support the audio element.
+          </audio>
+
+          <div class="contact-buttons">
+            <button class="contact-btn" id="emailBtn1">mail </button>
+            <button class="contact-btn" id="phoneBtn1"> call now</button>
+            </div>
+        </div>
+      </div>
+
+      <div class="product-box">
+        <div class="product-info">
+          <h3> Desighner x Bochas </h3>
+          <p>  Pressure 2.o </p>
+          <audio controls>
+              <source src="/records/pressure 2.0.mp3" type="audio/mp3">
+              Your browser does not support the audio element.
+          </audio>
+
+          <div class="contact-buttons">
+            <button class="contact-btn" id="emailBtn1">mail </button>
+            <button class="contact-btn" id="phoneBtn1"> call now</button>
+            </div>
+        </div>
+      </div>      
+
+      <div class="product-box">
+        <div class="product-info">
+          <h3> Desighner x Bochas x zama </h3>
+          <p>  DAYA MULE </p>
+          <audio controls>
+              <source src="records/BOCHAZ X ZAMA X MERVIN-DAYA MULE.mp3" type="audio/mp3">
+              Your browser does not support the audio element.
+          </audio>
+
+          <div class="contact-buttons">
+            <button class="contact-btn" id="emailBtn1">mail </button>
+            <button class="contact-btn" id="phoneBtn1"> call now</button>
+            </div>
+        </div>
+      </div>
+
+      <div class="product-box">
+        <div class="product-info">
+          <h3> Desighner x Bochas </h3>
+          <p>  Pressure 2.o </p>
+          <audio controls>
+              <source src="/records/pressure 2.0.mp3" type="audio/mp3">
+              Your browser does not support the audio element.
+          </audio>
+
+          <div class="contact-buttons">
+            <button class="contact-btn" id="emailBtn1">mail </button>
+            <button class="contact-btn" id="phoneBtn1"> call now</button>
+            </div>
+        </div>
+      </div>
+
+      <div class="product-box">
+        <div class="product-info">
+          <h3> Desighner x Bochas x zama </h3>
+          <p>  DAYA MULE </p>
+          <audio controls>
+              <source src="records/BOCHAZ X ZAMA X MERVIN-DAYA MULE.mp3" type="audio/mp3">
+              Your browser does not support the audio element.
+          </audio>
+
+          <div class="contact-buttons">
+            <button class="contact-btn" id="emailBtn1">mail </button>
+            <button class="contact-btn" id="phoneBtn1"> call now</button>
+            </div>
+        </div>
+      </div>
+
+      <div class="product-box">
+        <div class="product-info">
+          <h3> Desighner x Bochas </h3>
+          <p>  Pressure 2.o </p>
+          <audio controls>
+              <source src="/records/pressure 2.0.mp3" type="audio/mp3">
+              Your browser does not support the audio element.
+          </audio>
+
+          <div class="contact-buttons">
+            <button class="contact-btn" id="emailBtn1">mail </button>
+            <button class="contact-btn" id="phoneBtn1"> call now</button>
+            </div>
+        </div>
+      </div>
+
+           
+
+      <!-- Add more products as needed -->
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 <span>smallgiantcc</span>. All rights reserved.</p>
+</footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  // Contact buttons for each product
+  const emailBtn1 = document.getElementById("emailBtn1");
+  const phoneBtn1 = document.getElementById("phoneBtn1");
+  const smsBtn1 = document.getElementById("smsBtn1");
+
+  const emailBtn2 = document.getElementById("emailBtn2");
+  const phoneBtn2 = document.getElementById("phoneBtn2");
+  const smsBtn2 = document.getElementById("smsBtn2");
+
+  const emailBtn3 = document.getElementById("emailBtn3");
+  const phoneBtn3 = document.getElementById("phoneBtn3");
+  const smsBtn3 = document.getElementById("smsBtn3");
+
+  // Seller contact info (replace with actual contact details)
+  const sellerEmail = "seller@example.com";
+  const sellerPhone = "+1234567890";
+  const sellerSMS = "+1234567890"; // For SMS or WhatsApp
+
+  // Assigning actions to the buttons
+  emailBtn1.addEventListener("click", function () {
+    window.location.href = `mailto:${sellerEmail}`;
+  });
+
+  phoneBtn1.addEventListener("click", function () {
+    window.location.href = `tel:${sellerPhone}`;
+  });
+
+  smsBtn1.addEventListener("click", function () {
+    window.location.href = `sms:${sellerSMS}`;
+  });
+
+  emailBtn2.addEventListener("click", function () {
+    window.location.href = `mailto:${sellerEmail}`;
+  });
+
+  phoneBtn2.addEventListener("click", function () {
+    window.location.href = `tel:${sellerPhone}`;
+  });
+
+  smsBtn2.addEventListener("click", function () {
+    window.location.href = `sms:${sellerSMS}`;
+  });
+
+  emailBtn3.addEventListener("click", function () {
+    window.location.href = `mailto:${sellerEmail}`;
+  });
+
+  phoneBtn3.addEventListener("click", function () {
+    window.location.href = `tel:${sellerPhone}`;
+  });
+
+  smsBtn3.addEventListener("click", function () {
+    window.location.href = `sms:${sellerSMS}`;
+  });
+});
+
+
+  </script>
+</body>
+</html>

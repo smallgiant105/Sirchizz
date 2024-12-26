@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SG</title>
+    <style>
+
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        /* Scrollable container for entertainment section */
+        .entertainment-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        .entertainment-item {
+            min-width: 250px;
+            margin-right: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .entertainment-item img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .entertainment-item h3 {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .add-to-cart {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #3498db;
+        }
+
+        /* Cart button and popup */
+        .cart-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .cart-popup {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+        }
+
+        .cart-popup ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .cart-popup ul li {
+            padding: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-popup .checkout-btn {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            position: relative;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-family: monospace;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        footer span {
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Dine n Wine</h1>
+    <p>Great food, fun times, and entertainment!</p>
+    <nav>
+        <ul>
+            <li><a href="main.html">Home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Cart Button -->
+<div class="cart-btn" onclick="toggleCartPopup()">Cart (<span id="cart-count">0</span>)</div>
+
+<!-- Cart Popup -->
+<div class="cart-popup" id="cart-popup">
+    <h3>Your Cart</h3>
+    <ul id="cart-items">
+        <li>Your cart is empty.</li>
+    </ul>
+    <div id="cart-total">Total: $0.00</div>
+    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+</div>
+
+<div class="container">
+    <h2>Foodies</h2>
+    <div class="entertainment-container">
+        <div class="entertainment-item">
+            <img src="https://via.placeholder.com/250" alt="Event 1">
+            <h3>Live Music Night</h3>
+            <button class="add-to-cart" onclick="addToCart('Live Music Night', 50)">Add to Cart</button>
+        </div>
+        <div class="entertainment-item">
+            <img src="https://via.placeholder.com/250" alt="Event 2">
+            <h3>Chizzy Tube</h3>
+            <button class="add-to-cart" onclick="addToCart('Chizzy Tube', 40)">Add to Cart</button>
+        </div>
+        <div class="entertainment-item">
+            <img src="https://via.placeholder.com/250" alt="Event 3">
+            <h3>DJ Party</h3>
+            <button class="add-to-cart" onclick="addToCart('DJ Party', 60)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Drinkies</h2>
+        <div class="entertainment-container">
+            <div class="entertainment-item">
+                <img src="https://via.placeholder.com/250" alt="Event 1">
+                <h3>Live Music Night</h3>
+                <button class="add-to-cart" onclick="addToCart('Live Music Night', 50)">Add to Cart</button>
+            </div>
+            <div class="entertainment-item">
+                <img src="https://via.placeholder.com/250" alt="Event 2">
+                <h3>Chizzy Tube</h3>
+                <button class="add-to-cart" onclick="addToCart('Chizzy Tube', 40)">Add to Cart</button>
+            </div>
+            <div class="entertainment-item">
+                <img src="https://via.placeholder.com/250" alt="Event 3">
+                <h3>DJ Party</h3>
+                <button class="add-to-cart" onclick="addToCart('DJ Party', 60)">Add to Cart</button>
+            </div>
+        </div>
+
+    <!-- Other Entertainment Items as Needed -->
+    <!-- Add similar blocks here as needed, with the same structure for the "Add to Cart" functionality -->
+</div>
+
+
+
+<footer>
+    <p>&copy; 2024 <span>smallgiantcc</span>. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = [];
+    let cartCount = 0;
+
+    // Add item to the cart
+    function addToCart(itemName, itemPrice) {
+        cart.push({ name: itemName, price: itemPrice });
+        cartCount++;
+        updateCartCount();
+        displayCartItems();
+    }
+
+    // Update the cart count
+    function updateCartCount() {
+        document.getElementById('cart-count').textContent = cartCount;
+    }
+
+    // Display cart items in the popup
+    function displayCartItems() {
+        const cartItemsList = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        cartItemsList.innerHTML = '';
+
+        let totalAmount = 0;
+
+        cart.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+
+            // Create Remove Button for each item
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Remove';
+            removeBtn.onclick = function() { removeItem(index); };
+            li.appendChild(removeBtn);
+            cartItemsList.appendChild(li);
+
+            totalAmount += item.price;
+        });
+
+        cartTotal.textContent = `Total: $${totalAmount.toFixed(2)}`;
+
+        if (cart.length === 0) {
+            cartItemsList.innerHTML = '<li>Your cart is empty.</li>';
+            cartTotal.textContent = `Total: $0.00`;
+        }
+    }
+
+    // Remove item from the cart
+    function removeItem(index) {
+        cart.splice(index, 1); // Remove the item at the specified index
+        cartCount--;
+        updateCartCount();
+        displayCartItems();
+    }
+
+    // Toggle the cart popup visibility
+    function toggleCartPopup() {
+        const cartPopup = document.getElementById('cart-popup');
+        cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Checkout functionality
+    function checkout() {
+        if (cart.length === 0) {
+            alert('Your cart is empty! Add items to your cart before checking out.');
+        } else {
+            let totalAmount = 0;
+            cart.forEach(item => totalAmount += item.price);
+            alert(`Proceeding to checkout. Total: $${totalAmount.toFixed(2)}`);
+            cart = []; // Empty the cart after checkout
+            cartCount = 0;
+            updateCartCount();
+            displayCartItems();
+        }
+    }
+</script>
+
+</body>
+</html>
